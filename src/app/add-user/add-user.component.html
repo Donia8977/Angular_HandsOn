@@ -1,0 +1,53 @@
+<div class="container mt-5" style="max-width: 600px;">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title mb-4">Add user</h2>
+
+      <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input
+          id="firstName"
+          type="text"
+          class="form-control"
+          [(ngModel)]="firstname"
+          (ngModelChange)="onFirstNameChange($event)"
+          placeholder="Enter first name"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="secondName" class="form-label">Second Name</label>
+        <input
+          id="secondName"
+          type="text"
+          class="form-control"
+          [(ngModel)]="secondname"
+          (ngModelChange)="onSecondNameChange($event)"
+          placeholder="Enter second name"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label for="displayName" class="form-label">Display Name</label>
+        <input
+          id="displayName"
+          type="text"
+          class="form-control bg-light"
+          [value]="displayname"
+          (keydown)="onDisplayNameKeydown($event)"
+          readonly
+          placeholder="—"
+        />
+      </div>
+
+      <div>
+        <p class="fw-semibold mb-2">myForm details:-</p>
+<pre class="bg-light border rounded p-3">
+myForm value:
+{{ formDetails | json }}
+</pre>
+
+      </div>
+    </div>
+  </div>
+</div>

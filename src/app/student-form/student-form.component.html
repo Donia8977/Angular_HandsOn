@@ -1,0 +1,51 @@
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="card p-4">
+          <h2 class="h5 mb-4 text-center">Add Student</h2>
+  
+          <div class="mb-4">
+            <label for="idInput" class="form-label">Student ID</label>
+            <input
+              type="text"
+              id="idInput"
+              name="studentId"
+              class="form-control"
+              placeholder="e.g. 20pxxxx"
+              [(ngModel)]="studentId"
+            />
+          </div>
+  
+          <button
+            class="btn btn-primary w-100 mb-3"
+            [disabled]="!studentId.trim()"
+            (click)="addStudent()"
+          >
+            Add New Student
+          </button>
+  
+          <div *ngIf="studentId" class="text-center text-muted mb-3">
+            Preview ID: <strong>{{ studentId }}</strong>
+          </div>
+  
+          <div *ngIf="createdMessage" class="alert alert-success mb-4">
+            {{ createdMessage }}
+          </div>
+  
+          <div *ngIf="students.length">
+            <h3 class="h6 mb-3">Students List</h3>
+            <ul class="list-group">
+              <li
+                class="list-group-item"
+                *ngFor="let id of students"
+              >
+                {{ id }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
